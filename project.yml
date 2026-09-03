@@ -1,26 +1,17 @@
 name: ZaynixFile
-
 options:
   bundleIdPrefix: com.zaynix
-
 targets:
-
   ZaynixFile:
-
     type: application
-
     platform: iOS
-
-    deploymentTarget: "26.0"
-
+    deploymentTarget: "15.0"
     sources:
-      - ios/ZaynixFile
-
+      - path: ios/ZaynixFile
     settings:
-
       base:
-        PRODUCT_BUNDLE_IDENTIFIER:
-          com.zaynix.file
-
-        SWIFT_VERSION:
-          5.0
+        PRODUCT_BUNDLE_IDENTIFIER: com.zaynix.file
+        SWIFT_VERSION: 5.0
+        MARKETING_VERSION: "26.0"
+        CURRENT_PROJECT_VERSION: "1"
+        
