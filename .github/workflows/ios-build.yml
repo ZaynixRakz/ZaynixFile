@@ -1,0 +1,22 @@
+name: Zaynix iOS Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode
+        run: |
+          xcodebuild -version
+
+      - name: List files
+        run: |
+          find . -maxdepth 4 -type f
