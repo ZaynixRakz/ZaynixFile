@@ -2,6 +2,12 @@ name: ZaynixFile
 
 options:
   bundleIdPrefix: com.zaynix
+  deploymentTarget:
+    iOS: "26.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
 
 targets:
 
@@ -14,13 +20,13 @@ targets:
     deploymentTarget: "26.0"
 
     sources:
-      - ios/ZaynixFile
+      - path: ios/ZaynixFile
 
     settings:
-
       base:
-        PRODUCT_BUNDLE_IDENTIFIER:
-          com.zaynix.file
+        PRODUCT_BUNDLE_IDENTIFIER: com.zaynix.file
+        INFOPLIST_KEY_CFBundleDisplayName: Zaynix File
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
 
-        SWIFT_VERSION:
-          5.0
+    info:
+      path: ios/ZaynixFile/Info.plist
