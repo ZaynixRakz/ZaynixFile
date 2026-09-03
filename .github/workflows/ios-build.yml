@@ -5,18 +5,26 @@ on:
 
 jobs:
   build:
-
     runs-on: macos-latest
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Show Xcode
+      - name: Install XcodeGen
         run: |
-          xcodebuild -version
+          brew install xcodegen
 
-      - name: List files
+      - name: XcodeGen Generate
         run: |
-          find . -maxdepth 4 -type f
+          xcodegen generate
+
+      - name: Xcode Build Archive
+        run: |
+          xcodebuild \
+            -project ZaynixFile.xcodeproj \
+            -scheme ZaynixFile \
+            -sdk iphoneos \
+            -configuration Release \
+            archive
+            
