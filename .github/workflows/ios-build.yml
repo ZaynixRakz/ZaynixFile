@@ -19,16 +19,15 @@ jobs:
         run: |
           xcodegen generate
 
-      - name: Xcode Build Archive
+      - name: Xcode Build Project
         run: |
           xcodebuild \
             -project ZaynixFile.xcodeproj \
             -scheme ZaynixFile \
             -sdk iphoneos \
             -configuration Release \
-            -allowProvisioningUpdates \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
-            archive
+            build
             
