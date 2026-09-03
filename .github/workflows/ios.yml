@@ -1,0 +1,43 @@
+name: Zaynix File iOS Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show Xcode
+        run: |
+          xcodebuild -version
+
+      - name: Install XcodeGen
+        run: |
+          brew install xcodegen
+
+      - name: Generate Xcode project
+        run: |
+          xcodegen generate
+
+      - name: Show generated project
+        run: |
+          ls -la
+          find . -maxdepth 3 -type f
+
+      - name: Build iOS project
+        run: |
+          xcodebuild \
+            -project ZaynixFile.xcodeproj \
+            -scheme ZaynixFile \
+            -sdk iphonesimulator \
+            -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build
